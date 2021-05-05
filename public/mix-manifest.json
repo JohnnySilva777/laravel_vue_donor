@@ -1,4 +1,26 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/thema/js/jquery.min.js": "/thema/js/jquery.min.js",
+    "/thema/js/bootstrap.bundle.min.js": "/thema/js/bootstrap.bundle.min.js",
+    "/thema/js/adminlte.min.js": "/thema/js/adminlte.min.js",
+    "/thema/plugins/fontawesome-free/css/all.min.css": "/thema/plugins/fontawesome-free/css/all.min.css",
+    "/thema/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js": "/thema/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+    "/thema/dist/css/adminlte.min.css": "/thema/dist/css/adminlte.min.css",
+    "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.eot": "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.eot",
+    "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.svg": "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.svg",
+    "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.ttf": "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.ttf",
+    "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.woff": "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.woff",
+    "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.woff2": "/thema/plugins/fontawesome-free/webfonts/fa-brands-400.woff2",
+    "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.eot": "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.eot",
+    "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.svg": "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.svg",
+    "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.ttf": "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.ttf",
+    "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.woff": "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.woff",
+    "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.woff2": "/thema/plugins/fontawesome-free/webfonts/fa-regular-400.woff2",
+    "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.eot": "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.eot",
+    "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.svg": "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.svg",
+    "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.ttf": "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.ttf",
+    "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.woff": "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.woff",
+    "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.woff2": "/thema/plugins/fontawesome-free/webfonts/fa-solid-900.woff2",
+    "/thema/plugins/overlayScrollbars/css/OverlayScrollbars.min.css": "/thema/plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
 }
