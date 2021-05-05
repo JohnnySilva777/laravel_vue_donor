@@ -17,9 +17,9 @@ Route::view('/', 'welcome');
 Auth::routes();
 
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
-Route::get('/login/donor', 'Auth\LoginController@showDonorLoginForm');
+Route::get('/login/donor', 'Auth\LoginController@showDonorLoginForm')->name('login.donor');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
-Route::get('/register/donor', 'Auth\RegisterController@showDonorRegisterForm');
+Route::get('/register/donor', 'Auth\RegisterController@showDonorRegisterForm')->name('register.donor');
 
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/login/donor', 'Auth\LoginController@donorLogin');
@@ -28,7 +28,7 @@ Route::post('/register/donor', 'Auth\RegisterController@createDonor');
 
 
 Route::group(['middleware' => 'auth:donor', 'prefix' => 'donor'], function () {
-    Route::view('/donor', 'donor');
+    Route::get('/', 'Donor\HomeController@index')->name('donor.index');
 });
 
 Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {

@@ -52,8 +52,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
 
             <!-- Sidebar Menu -->
-                @include('admin.dashboard.partials.left-sidebar')
-            <!-- /.sidebar-menu -->
+        @include('donor.partials.left-sidebar')
+        <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
     </aside>

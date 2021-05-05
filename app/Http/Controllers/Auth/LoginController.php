@@ -55,7 +55,6 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
             return redirect()->intended('/admin');
         }
         return back()->withInput($request->only('email', 'remember'));
@@ -91,7 +90,8 @@ class LoginController extends Controller
     }
 
     public function logout(Request $request) {
-        Auth::logout();
-        return redirect('/login');
+        $this->guard()->logout();
+        $request->session()->flush();
+        return redirect('/');
     }
 }
