@@ -23,6 +23,6 @@ mix
     .copy("./node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css", "public/thema/plugins/fontawesome-free/css/all.min.css")
     .copyDirectory("./node_modules/admin-lte/plugins/fontawesome-free/webfonts", "public/thema/plugins/fontawesome-free/webfonts")
     .copy("./node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css", "public/thema/plugins/overlayScrollbars/css/OverlayScrollbars.min.css")
-    .js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/app.js', 'public/js').vue()
     .sourceMaps();

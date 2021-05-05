@@ -14,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('donations', \Api\DonationController::class)
-    ->names('donations');
+//Route::resource('donations', \Api\DonationController::class)
+//    ->names('donations');
+
+Route::post('donations/store', 'Api\DonationController@store')
+    ->name('donations.store');
 
 Route::get('donors/{id}/donations', 'Api\DonorController@donations')
     ->name('donors.donations');
+
+Route::get('organizations', 'Api\OrganizationController@index')
+    ->name('organizations.index');

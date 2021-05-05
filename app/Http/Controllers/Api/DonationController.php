@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 class DonationController
 {
     public function store(Request $request){
-        Donations::create($request->all());
+        return Donations::create($request->all());
     }
 
-//    public function show($id){
-//        dd($id);
-//    }
+    public function index($id){
+        dd($id);
+    }
 }

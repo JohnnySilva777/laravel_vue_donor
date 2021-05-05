@@ -11,8 +11,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @if (Auth::check())
+        <meta name="user_id" content="{{ Auth::user()->id }}" />
+    @endif
 
-    <!-- Google Font: Source Sans Pro -->
+<!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
@@ -64,7 +67,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                @yield('content')
+                <div id="app">
+                    <app></app>
+                </div>
             </div>
         </section>
     </div>
@@ -77,6 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- ./wrapper -->
 
 <!-- jQuery -->
+<script src="{{mix('js/app.js')}}"></script>
 <script src="{{asset('thema/js/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('thema/js/bootstrap.bundle.min.js')}}"></script>
@@ -85,4 +91,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('thema/js/adminlte.min.js')}}"></script>
 </body>
 </html>
-</html>
+<script>
+    import App from "../../js/vue/app";
+    export default {
+        components: {App}
+    }
+</script>

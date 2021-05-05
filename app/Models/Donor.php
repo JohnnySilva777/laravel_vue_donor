@@ -20,7 +20,7 @@ class Donor extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function donation(){
-        return $this->belongsTo(Donations::class);
+    public function donations(){
+        return $this->hasMany(Donations::class);
     }
 }
