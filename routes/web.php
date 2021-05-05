@@ -27,12 +27,18 @@ Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 Route::post('/register/donor', 'Auth\RegisterController@createDonor');
 
 
-Route::group(['middleware' => 'auth:donor'], function () {
+Route::group(['middleware' => 'auth:donor', 'prefix' => 'donor'], function () {
     Route::view('/donor', 'donor');
 });
 
-Route::group(['middleware' => 'auth:admin'], function () {
-    Route::view('/admin', 'admin');
+Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
+    Route::view('/', 'admin.dashboard.dashboard');
+    Route::prefix('/organizations')->group(function (){
+        Route::get('/', 'Admin\OrganizationsController@index')->name('organizations.index');
+        Route::match(['post', 'get'], '/create',   'Admin\OrganizationsController@create')->name('organizations.create');
+        Route::match(['post', 'get'], '/edit/{id}',     'Admin\OrganizationsController@edit')->name('organizations.edit');
+        Route::delete('/delete/{id}',   'Admin\OrganizationsController@remove')->name('organizations.delete');
+    });
 });
 
 Route::get('logout', 'Auth\LoginController@logout');
