@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <aside>
-            asdasd
+            trocar redirect
         </aside>
     </div>
 @endsection
