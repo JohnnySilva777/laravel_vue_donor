@@ -19,4 +19,8 @@ class Organization extends Model
         'name',
         'description',
     ];
+
+    public function donation(){
+        return $this->belongsTo(Donations::class);
+    }
 }

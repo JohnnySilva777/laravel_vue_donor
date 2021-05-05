@@ -19,4 +19,8 @@ class Donor extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function donation(){
+        return $this->belongsTo(Donations::class);
+    }
 }

@@ -14,9 +14,13 @@ class CreateDonorsTable extends Migration
     public function up()
     {
         Schema::create('donors', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->foreignId('favorite_organization_id')
+                ->nullable()
+                ->references('id')
+                ->on('organizations');
             $table->string('password');
             $table->boolean('is_donors')->default(false);
             $table->rememberToken();
