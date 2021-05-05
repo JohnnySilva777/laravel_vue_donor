@@ -4,25 +4,15 @@
 namespace App\Http\Controllers\Admin;
 
 
+use App\Models\Organization;
+use Illuminate\Http\Request;
+
 class OrganizationController
 {
     public function index()
     {
-        $products = Organization::paginate(10);
-        return view('admin.products.index', ['products' => $products]);
-    }
-
-    public function remove($id)
-    {
-        $product = Organization::find($id);
-        try {
-            if ($product) {
-                $product->delete();
-            }
-        } catch (\Exception $exception) {
-            Log::error('Erro -> ' . json_encode(['Controller' => 'Organization.delete', $exception->getMessage()]));
-        }
-        return redirect()->route('organizations.index');
+        $organizations = Organization::paginate(10);
+        return view('admin.organizations.index', ['organizations' => $organizations]);
     }
 
     public function create(Request $request)
@@ -50,10 +40,22 @@ class OrganizationController
                 $request->session()->flash('message', 'Successfully updated organization');
                 return redirect()->route('organizations.index');
             } catch (\Exception $exception) {
-                dd($exception->getMessage());
                 Log::error('Erro -> ' . json_encode(['Controller' => 'Organization.delete', $exception->getMessage()]));
             }
         }
         return view('admin.organizations.edit', ['organization' => $product]);
+    }
+
+    public function remove($id)
+    {
+        $organization = Organization::find($id);
+        try {
+            if ($organization) {
+                $organization->delete();
+            }
+        } catch (\Exception $exception) {
+            Log::error('Erro -> ' . json_encode(['Controller' => 'Organization.delete', $exception->getMessage()]));
+        }
+        return redirect()->route('organizations.index');
     }
 }

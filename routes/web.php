@@ -32,12 +32,12 @@ Route::group(['middleware' => 'auth:donor', 'prefix' => 'donor'], function () {
 });
 
 Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
-    Route::view('/', 'admin.dashboard.dashboard');
+    Route::get('/', 'Admin\HomeController@index')->name('admin.index');
     Route::prefix('/organizations')->group(function (){
-        Route::get('/', 'Admin\OrganizationsController@index')->name('organizations.index');
-        Route::match(['post', 'get'], '/create',   'Admin\OrganizationsController@create')->name('organizations.create');
-        Route::match(['post', 'get'], '/edit/{id}',     'Admin\OrganizationsController@edit')->name('organizations.edit');
-        Route::delete('/delete/{id}',   'Admin\OrganizationsController@remove')->name('organizations.delete');
+        Route::get('/', 'Admin\OrganizationController@index')->name('organizations.index');
+        Route::match(['post', 'get'], '/create',   'Admin\OrganizationController@create')->name('organizations.create');
+        Route::match(['post', 'get'], '/edit/{id}',     'Admin\OrganizationController@edit')->name('organizations.edit');
+        Route::delete('/delete/{id}',   'Admin\OrganizationController@remove')->name('organizations.delete');
     });
 });
 

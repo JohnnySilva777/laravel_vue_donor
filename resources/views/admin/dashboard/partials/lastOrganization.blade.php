@@ -16,20 +16,22 @@
         <!-- /.card-header -->
         <div class="card-body p-0">
             <ul class="products-list product-list-in-card pl-2 pr-2">
-                <li class="item">
-                    <div class="product-info">
-                        <a href="javascript:void(0)" class="product-title">XXX
-                            <span class="badge badge-warning float-right">View Organization</span></a>
-                        <span class="product-description">
-                        Empresa segmento da saúde.
-                      </span>
-                    </div>
-                </li>
+                @foreach($organizations as $organization)
+                    <li class="item">
+                        <div class="product-info">
+                            <a href="{{route('organizations.edit', $organization->id)}}" class="product-title">{{$organization->name}}
+                                <span class="badge badge-warning float-right">View Organization</span></a>
+                            <span class="product-description">
+                            {{$organization->description}}.
+                          </span>
+                        </div>
+                    </li>
+                @endforeach
             </ul>
         </div>
         <!-- /.card-body -->
         <div class="card-footer text-center">
-            <a href="javascript:void(0)" class="uppercase">View All Products</a>
+            <a href="{{route('organizations.index')}}" class="uppercase">View All Organizations</a>
         </div>
         <!-- /.card-footer -->
     </div>
