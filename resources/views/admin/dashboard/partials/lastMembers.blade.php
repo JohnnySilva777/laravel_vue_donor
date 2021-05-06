@@ -18,44 +18,19 @@
         <!-- /.card-header -->
         <div class="card-body p-0">
             <ul class="users-list clearfix">
-                <li>
-                    <a class="users-list-name" href="#">Alexander Pierce</a>
-                    <span class="users-list-date">Today</span>
-                </li>
-                <li>
-                    <a class="users-list-name" href="#">Norman</a>
-                    <span class="users-list-date">Yesterday</span>
-                </li>
-                <li>
-                    <a class="users-list-name" href="#">Jane</a>
-                    <span class="users-list-date">12 Jan</span>
-                </li>
-                <li>
-                    <a class="users-list-name" href="#">John</a>
-                    <span class="users-list-date">12 Jan</span>
-                </li>
-                <li>
-                    <a class="users-list-name" href="#">Alexander</a>
-                    <span class="users-list-date">13 Jan</span>
-                </li>
-                <li>
-                    <a class="users-list-name" href="#">Sarah</a>
-                    <span class="users-list-date">14 Jan</span>
-                </li>
-                <li>
-                    <a class="users-list-name" href="#">Nora</a>
-                    <span class="users-list-date">15 Jan</span>
-                </li>
-                <li>
-                    <a class="users-list-name" href="#">Nadia</a>
-                    <span class="users-list-date">15 Jan</span>
-                </li>
+                @foreach($donors as $donor)
+                    <li>
+                        <a class="users-list-name" href="#">{{$donor->name}}</a>
+                        <span class="users-list-date">{{$donor->email}}</span>
+                        <span class="users-list-date">{{$donor->created_at}}</span>
+                    </li>
+                @endforeach
             </ul>
             <!-- /.users-list -->
         </div>
         <!-- /.card-body -->
         <div class="card-footer text-center">
-            <a href="javascript:">View All Users</a>
+            <a href="{{route('donors.index')}}">View All Users</a>
         </div>
         <!-- /.card-footer -->
     </div>

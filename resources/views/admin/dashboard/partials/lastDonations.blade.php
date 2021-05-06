@@ -26,26 +26,22 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                        <td>Willzera</td>
-                        <td><span class="badge badge-success">Unique</span></td>
-                        <td>
-                            <div class="sparkbar" data-color="#00a65a" data-height="20">
-                                R$90,80
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                        <td>Johnzera</td>
-                        <td><span class="badge badge-primary">Recurrence</span></td>
-                        <td>
-                            <div class="sparkbar" data-color="#f39c12" data-height="20">
-                                R$90,80
-                            </div>
-                        </td>
-                    </tr>
+                    @foreach($donations as $donation)
+                        <tr>
+                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                            <td>{{$donation->donor->name}}</td>
+                            @if($donation->type === 'unique')
+                                <td><span class="badge badge-success">{{$donation->type}}</span></td>
+                            @else
+                                <td><span class="badge badge-primary">{{$donation->type}}</span></td>
+                            @endif
+                            <td>
+                                <div class="sparkbar" data-color="#00a65a" data-height="20">
+                                    R${{$donation->price/100}}
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -53,7 +49,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer clearfix">
-            <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All
+            <a href="{{route('donations.index')}}" class="btn btn-sm btn-secondary float-right">View All
                 Orders</a>
         </div>
         <!-- /.card-footer -->

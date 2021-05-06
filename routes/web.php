@@ -39,6 +39,15 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
         Route::match(['post', 'get'], '/edit/{id}',     'Admin\OrganizationController@edit')->name('organizations.edit');
         Route::delete('/delete/{id}',   'Admin\OrganizationController@remove')->name('organizations.delete');
     });
+    Route::prefix('/donors')->group(function (){
+        Route::get('/', 'Admin\DonorController@index')->name('donors.index');
+        Route::match(['post', 'get'], '/create',   'Admin\DonorController@create')->name('donors.create');
+        Route::match(['post', 'get'], '/edit/{id}',     'Admin\DonorController@edit')->name('donors.edit');
+        Route::delete('/delete/{id}',   'Admin\DonorController@remove')->name('donors.delete');
+    });
+    Route::prefix('/donations')->group(function (){
+        Route::get('/', 'Admin\DonationController@index')->name('donations.index');
+    });
 });
 
 Route::get('logout', 'Auth\LoginController@logout');
