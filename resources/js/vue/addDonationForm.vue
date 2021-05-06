@@ -10,13 +10,13 @@
                 <input type="text" v-model="price"/>
                 <button
                     @click="addItem()"
-                    :class="[ price && type_donation && organization_id_select ? 'active' : 'inactive' ]">Doar
+                    :class="[ price && type_donation && organization_id_select ? 'active' : 'inactive', 'btn btn-primary']">Doar
                 </button>
             </div>
         </div>
 
         <div class="row justify-content-center mt-2">
-            <div class="col-md-3 col-sm-4 col-12 mt-3" v-for="(organization, index) in organizations" :key="index">
+            <div class="col-md-3 col-sm-12 col-12 mt-3" v-for="(organization, index) in organizations" :key="index">
                 <div class="col-12">
                     <list-organization
                         :organization="organization"

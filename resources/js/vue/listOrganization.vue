@@ -8,7 +8,7 @@
             <div class="d-flex mt-auto">
                 <button href="#" @click="selectFavorite"
                         :data-id="organization.id"
-                        :class="[ this.$user.favorite_organization_id === organization.id ?
+                        :class="[ this.$user.favorite_organization_id == organization.id ?
                         'select-organization btn btn-danger mr-1' :
                         'select-organization btn btn-primary mr-1']">Fav
                 </button>
@@ -66,7 +66,7 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 15; /* number of lines to show */
+    -webkit-line-clamp: 7; /* number of lines to show */
     -webkit-box-orient: vertical;
 }
 
