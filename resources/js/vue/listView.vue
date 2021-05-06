@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>List Donations</h1>
         <div v-for="(donation, index) in donations" :key="index">
             <list-donation
                 :donation="donation"

@@ -4,6 +4,7 @@
             <h2 id="title">Make Donation</h2>
             <add-donation-form
                 v-on:reloadlist="getList()"
+                v-on:reloadlistorganization="getListOrganizations()"
                 :donor_id="donor_id"
                 :organizations="organizations"
             />
@@ -21,7 +22,7 @@ import ListView from './listView.vue'
 export default {
     components: {
         AddDonationForm,
-        ListView
+        ListView,
     },
     data: () => {
         return {
@@ -36,6 +37,7 @@ export default {
             axios.get('api/organizations')
                 .then(response => {
                     this.organizations = response.data
+                    console.log(this.$user.favorite_organization_id);
                 })
                 .catch(error => {
                     console.log(error)
@@ -73,5 +75,8 @@ export default {
 
 #title {
     text-align: center;
+}
+.itemCard {
+    display: flex;
 }
 </style>

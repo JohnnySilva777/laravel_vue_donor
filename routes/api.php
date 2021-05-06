@@ -23,5 +23,11 @@ Route::post('donations/store', 'Api\DonationController@store')
 Route::get('donors/{id}/donations', 'Api\DonorController@donations')
     ->name('donors.donations');
 
+Route::get('donors/{id}', 'Api\DonorController@show')
+    ->name('donors.show');
+
+Route::post('donors/favorite', 'Api\DonorController@favorite')
+    ->name('donors.favorite');
+
 Route::get('organizations', 'Api\OrganizationController@index')
     ->name('organizations.index');
