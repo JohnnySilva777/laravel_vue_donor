@@ -19,8 +19,8 @@ class DonorSeeder extends Seeder
     {
         $organizationIds = array();
         $faker = Faker::create();
-        $numberOfUsers = 10;
-        $numberOfOrganization = 10;
+        $numberOfUsers = 3;
+        $numberOfOrganization = 3;
         for ($i = 0; $i < $numberOfOrganization; $i++) {
             $organization = Organization::create([
                 'name' => $faker->name(),
@@ -28,6 +28,14 @@ class DonorSeeder extends Seeder
             ]);
             array_push($organizationIds, $organization->id);
         }
+
+        Donor::create([
+            'name' => $faker->name(),
+            'email' => 'donor@gmail.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'favorite_organization_id' => $organizationIds[random_int(0,$numberOfOrganization-1)],
+            'remember_token' => Str::random(10),
+        ]);
 
         for($i = 0; $i<$numberOfUsers; $i++){
             Donor::create([

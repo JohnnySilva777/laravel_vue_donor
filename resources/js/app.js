@@ -17,6 +17,10 @@ axios.get(`api/donors/${Vue.prototype.$userId}`)
         console.log(error)
     })
 
+Vue.prototype.$selectOrg = {
+    id: 0
+};
+
 const app = new Vue({
     el: '#app',
     component: { App },

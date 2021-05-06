@@ -16,7 +16,7 @@ class OrganizationSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        $numberOfOrganization = 10;
+        $numberOfOrganization = 1;
         for ($i = 0; $i < $numberOfOrganization; $i++) {
             Organization::create([
                 'name' => $faker->name(),

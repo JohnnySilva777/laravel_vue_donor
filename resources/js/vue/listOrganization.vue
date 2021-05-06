@@ -9,8 +9,8 @@
                 <button href="#" @click="selectFavorite"
                         :data-id="organization.id"
                         :class="[ this.$user.favorite_organization_id == organization.id ?
-                        'select-organization btn btn-danger mr-1' :
-                        'select-organization btn btn-primary mr-1']">Fav
+                        'btn btn-danger mr-1' :
+                        'btn btn-primary mr-1']">Fav
                 </button>
                 <button href="#" v-on:click="isHidden = !isHidden" class="select-organization btn btn-primary"
                         @click="getIdOrganization"
@@ -31,6 +31,28 @@ export default {
     },
     methods: {
         getIdOrganization: function (event) {
+            if (this.$selectOrg.id > 0) {
+                $(`.select-organization[data-id=${this.$selectOrg.id}]`)
+                    .text('Select Organization')
+                    .removeClass("btn-success")
+                    .addClass("btn-primary")
+
+                $(`.select-organization[data-id=${event.target.dataset.id}]`)
+                    .text('Select Organization')
+                    .removeClass("btn-primary")
+                    .addClass("btn-success")
+
+                event.target.textContent = 'Selected';
+                this.$selectOrg.id = event.target.dataset.id;
+            } else {
+                $(`.select-organization[data-id=${event.target.dataset.id}]`)
+                    .text('Select Organization')
+                    .removeClass("btn-primary")
+                    .addClass("btn-success")
+                event.target.textContent = 'Selected';
+                this.$selectOrg.id = event.target.dataset.id;
+            }
+
             this.$emit('get-id-organization', event.target.dataset.id);
         },
         selectFavorite(event) {
