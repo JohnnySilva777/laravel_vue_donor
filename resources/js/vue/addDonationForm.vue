@@ -7,7 +7,7 @@
                     <option value="recurrence">Recurrence</option>
                     <option value="unique">Unique</option>
                 </select>
-                <input type="text" v-model="price"/>
+                <input v-model.lazy="price" v-money="money" />
                 <button
                     @click="addItem()"
                     :class="[ price && type_donation && organization_id_select ? 'active' : 'inactive', 'btn btn-primary']">Doar
@@ -40,7 +40,7 @@
 
 <script>
 import ListOrganization from './listOrganization.vue'
-import Vue from "vue";
+import {VMoney} from 'v-money'
 
 export default {
     components: {
@@ -51,12 +51,22 @@ export default {
         return {
             organization_id_select: "",
             type_donation: "",
-            price: "",
+            price: "0",
+            money: {
+                decimal: ',',
+                thousands: '.',
+                prefix: 'R$ ',
+                precision: 2,
+                masked: false /* doesn't work with directive */
+            }
         }
     },
+    directives: {money: VMoney},
     methods: {
         addItem() {
-            if ((this.price < 5) ||
+            let priceFormat = parseInt(this.price.split(" ")[1].replace(/[.,]/g, ''))/100;
+            let minimumFormat = 500/100;
+            if (priceFormat < minimumFormat ||
                 !this.type_donation ||
                 !this.organization_id_select) {
                 return;
@@ -65,7 +75,7 @@ export default {
                 donor_id: this.donor_id,
                 organization_id: this.organization_id_select,
                 type: this.type_donation,
-                price: this.price,
+                price: parseInt(this.price.split(" ")[1].replace(/[.,]/g, '')),
             })
                 .then(response => {
                     if (response.status === 201) {
@@ -85,7 +95,6 @@ export default {
         },
         setIdOrganization: function setIdOrganization(event) {
             this.organization_id_select = event;
-            console.log(event);
         }
     }
 }

@@ -1,6 +1,6 @@
 <template>
-    <div class="item">
-        <p> Price : {{ donation.price/100 }}</p>
+    <div class="one-donation">
+        <p> Price : R$ {{ donation.price/100 }}</p>
         <p> Type : {{ donation.type }}</p>
         <p> Org : {{ donation.organization.name }} </p>
     </div>
@@ -12,9 +12,8 @@ export default {
 }
 </script>
 <style scoped>
-.item{
+.one-donation{
     justify-content: center;
     align-items: center;
-    background: #000000;
 }
 </style>

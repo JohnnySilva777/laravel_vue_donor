@@ -2,6 +2,9 @@ require('./bootstrap');
 
 import Vue from 'vue'
 
+// import money from 'v-money'
+// Vue.use(money, {precision: 4})
+
 import App from './vue/app.vue'
 
 Vue.prototype.$userId = document.querySelector("meta[name='user_id']").getAttribute('content');

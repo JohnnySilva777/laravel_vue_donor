@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="listDonations">
         <h1>List Donations</h1>
         <div v-for="(donation, index) in donations" :key="index">
             <list-donation
@@ -23,8 +23,14 @@ export default {
 </script>
 <style scoped>
 .item {
-    backdrop-filter: #000000;
     padding: 5px;
     margin-top: 5px;
+    background: #000000;
+    border-bottom: 1px solid #ffffff;
+}
+.listDonations {
+    background: #000000;
+    margin-top: 2%;
+    padding: 5%;
 }
 </style>
