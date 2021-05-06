@@ -75,7 +75,7 @@ This application was to put acquired knowledge into practice.
 
 * Theme integration
 
-* Application of Vue.js in some components of the donor screen
+* Application with Vue.js in some components of the donor screen
 
 New features and bugfixes are on the way ...
 
