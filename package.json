@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "admin-lte": "^3.1.0",
+        "jw-vue-pagination": "^1.0.3",
         "v-money": "^0.8.1",
         "vue": "^2.6.12"
     }

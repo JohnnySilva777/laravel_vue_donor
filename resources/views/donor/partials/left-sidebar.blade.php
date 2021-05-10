@@ -9,7 +9,14 @@
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                     Make Donation
-{{--                    <span class="right badge badge-danger">Love</span>--}}
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('logout') }}" class="nav-link">
+                <i class="fas fa-sign-in-alt mr-2"></i>
+                <p>
+                    Logout
                 </p>
             </a>
         </li>

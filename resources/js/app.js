@@ -7,6 +7,10 @@ import Vue from 'vue'
 
 import App from './vue/app.vue'
 
+// make jw pagination component available in application
+import JwPagination from 'jw-vue-pagination';
+Vue.component('jw-pagination', JwPagination);
+
 Vue.prototype.$userId = document.querySelector("meta[name='user_id']").getAttribute('content');
 
 axios.get(`api/donors/${Vue.prototype.$userId}`)

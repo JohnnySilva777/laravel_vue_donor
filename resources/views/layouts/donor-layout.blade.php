@@ -31,23 +31,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__wobble" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+        <img class="animation__wobble" src="./img/logo.png" alt="Donor Panel" height="60" width="60">
     </div>
 
-@include('admin.partials.topbar')
+@include('donor.partials.topbar')
 
 <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="#" class="brand-link">
+        <a href="#" class="brand-link text-center">
             <span class="brand-text font-weight-light">Panel Donations</span>
         </a>
 
         <!-- Sidebar -->
         <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="info">
+                <div class="info text-center">
                     <a href="#" class="d-block">
                         {{ \Illuminate\Support\Facades\Auth::user()->name }}
                     </a>
