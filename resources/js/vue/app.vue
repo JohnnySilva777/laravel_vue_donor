@@ -69,8 +69,9 @@ export default {
 }
 
 .heading {
-    background-color: #000000;
-    padding: 10px;
+    background-color: #343a40;
+    margin-top: 2%;
+    padding: 2%;
 }
 
 #title {

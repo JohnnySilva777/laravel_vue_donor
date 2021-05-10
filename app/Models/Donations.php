@@ -27,4 +27,16 @@ class Donations extends Model
     public function organization(){
         return $this->belongsTo(Organization::class);
     }
+
+    public function getTotalDonationsRecurrence()
+    {
+        $total = $this->where('type', 'recurrence')->sum('price');
+        return $total/100;
+    }
+
+    public function getTotalDonationsUnique()
+    {
+        $total = $this->where('type', 'unique')->sum('price');
+        return $total/100;
+    }
 }

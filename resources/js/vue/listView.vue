@@ -25,11 +25,11 @@ export default {
 .item {
     padding: 5px;
     margin-top: 5px;
-    background: #000000;
+    background: #343a40;
     border-bottom: 1px solid #ffffff;
 }
 .listDonations {
-    background: #000000;
+    background: #343a40;
     margin-top: 2%;
     padding: 5%;
 }

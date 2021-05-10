@@ -23,4 +23,9 @@ class Organization extends Model
     public function donation(){
         return $this->belongsTo(Donations::class);
     }
+
+    public function getTotalOrganizations()
+    {
+        return $this->count();
+    }
 }

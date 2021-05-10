@@ -6,7 +6,7 @@
             <h3 class="card-title">Latest Members</h3>
 
             <div class="card-tools">
-                <span class="badge badge-danger">8 New Members Today</span>
+                <span class="badge badge-danger">{{$totalMembersToday}} New Members Today</span>
                 <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                 </button>

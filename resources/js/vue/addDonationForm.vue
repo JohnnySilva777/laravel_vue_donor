@@ -1,23 +1,22 @@
 <template>
     <div class="addItem">
         <div class="row">
-            <div class="col-12 d-flex">
-                <select name="recurrence" v-on:change="changeDonationType($event)">
+            <div class="col-12 d-flex form-group">
+                <select class="form-control col-2" name="recurrence" v-on:change="changeDonationType($event)">
                     <option value="" selected>Escolha</option>
                     <option value="recurrence">Recurrence</option>
                     <option value="unique">Unique</option>
                 </select>
-                <input v-model.lazy="price" v-money="money"/>
+                <input class="col-8" v-model.lazy="price" v-money="money"/>
                 <button
-                    @click="addItem()"
-                    :class="[ price && type_donation && organization_id_select ? 'active' : 'inactive', 'btn btn-primary']">
-                    Doar
-                </button>
+                @click="addItem()"
+                :class="[ price && type_donation ? 'active' : 'inactive', 'btn btn-primary col-2']">
+                Doar
+            </button>
             </div>
         </div>
         <div class="error-minimum" id="error-msg">
-            <div class="alert alert-danger" role="alert">
-                Minimum R$ 5,00
+            <div class="alert alert-danger msg-erroor" role="alert">
             </div>
         </div>
         <div class="row justify-content-center mt-2">
@@ -60,13 +59,23 @@ export default {
     directives: {money: VMoney},
     methods: {
         addItem() {
+            $('.msg-erroor').html('');
             let priceFormat = parseInt(this.price.split(" ")[1].replace(/[.,]/g, '')) / 100;
             let minimumFormat = 500 / 100;
             let error = document.getElementById("error-msg");
+            let erros = false;
             if (priceFormat < minimumFormat) {
-                error.style.display = "block";
-            } else {
+                erros = true;
+                $('.msg-erroor').append('<p>Minimium R$ 5,00</p>');
+            }
+            if (!this.type_donation) {
+                erros = true;
+                $('.msg-erroor').append('<p>You need select type donation</p>');
+            }
 
+            if(erros == true){
+                error.style.display = "block";
+            }else {
                 axios.post('api/donations/store', {
                     donor_id: this.donor_id,
                     organization_id: this.organization_id_select,
